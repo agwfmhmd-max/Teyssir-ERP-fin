@@ -82,3 +82,16 @@ mr.teyssir.erp
 - `capacitor.config.ts` — إعداد Android
 - `vercel.json` — إعداد Vercel
 - `manifest.webmanifest` — PWA
+## Firebase configuration and GitHub secret warning
+
+The legacy ERP no longer contains a hardcoded Firebase API key. The file `public/erp/firebase-config.js` is generated during `npm run dev` / `npm run build` from `VITE_FIREBASE_*` environment variables and is ignored by Git.
+
+### Local / Vercel
+1. Copy `.env.example` to `.env.local` and fill in the Firebase client configuration from the Firebase Console.
+2. For Vercel, add the same `VITE_FIREBASE_*` variables under Project Settings → Environment Variables, then redeploy.
+3. For Android/Capacitor, run the build with those variables present; the Firebase client configuration is bundled into the app.
+
+Firebase client API keys are public identifiers, not authorization credentials. Firebase recommends API restrictions, Security Rules, and App Check. Do not place Firebase service-account private keys, FCM server keys, Gemini Developer API keys, or other server secrets in this frontend.
+
+If the old key was already committed to Git history, removing it from the current source does not erase that history. Review the GitHub secret-scanning alert and rotate/restrict the key as appropriate, then clean the old value from repository history before pushing the cleaned project.
+
