@@ -1,0 +1,15 @@
+{
+  "name": "Teyssir ERP",
+  "short_name": "Teyssir",
+  "description": "نظام إدارة المؤسسات والمبيعات والمخزون والمالية",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#0f4c81",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    { "src": "/erp/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/erp/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
